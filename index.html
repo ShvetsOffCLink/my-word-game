@@ -2,27 +2,26 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Собери слово</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Word Game: синхофазатрон</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>🧠 Собери слово</h1>
-  <div id="game-container">
-    <div id="letters">
-      <div class="letter" draggable="true">С</div>
-      <div class="letter" draggable="true">Л</div>
-      <div class="letter" draggable="true">О</div>
-      <div class="letter" draggable="true">В</div>
-      <div class="letter" draggable="true">О</div>
-    </div>
-    <div id="drop-zone">
-      <div class="drop-slot"></div>
-      <div class="drop-slot"></div>
-      <div class="drop-slot"></div>
-      <div class="drop-slot"></div>
-      <div class="drop-slot"></div>
-    </div>
+  <div class="container">
+    <h1>Word Game</h1>
+    <p>Base word: <strong>синхофазатрон</strong></p>
+
+    <form id="wordForm">
+      <input type="text" id="wordInput" placeholder="Enter a word" autocomplete="off" required />
+      <button type="submit">Add Word</button>
+    </form>
+
+    <div id="messages"></div>
+
+    <h2>Words created (max 10):</h2>
+    <ul id="wordList"></ul>
+
+    <h2>Total Score: <span id="totalScore">0</span></h2>
   </div>
 
   <script src="script.js"></script>
