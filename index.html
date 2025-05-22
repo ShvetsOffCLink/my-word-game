@@ -3,25 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Word Game: синхофазатрон</title>
+  <title>Словесная игра</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
-    <h1>Собери 10 слов из представленного ниже, за каждую букву получи одно очко</h1>
-    <p>Base word: <strong>синхофазатрон</strong></p>
+    <h1>Собери 10 слов из ниже приведённого слова, получи за каждую букву одно очко</h1>
+    <p>Базовое слово: <strong>синхофазатрон</strong></p>
 
     <form id="wordForm">
-      <input type="text" id="wordInput" placeholder="Enter a word" autocomplete="off" required />
-      <button type="submit">Add Word</button>
+      <input type="text" id="wordInput" placeholder="Введи слово" autocomplete="off" required />
+      <button type="submit">Добавить</button>
     </form>
 
     <div id="messages"></div>
 
-    <h2>Words created (max 10):</h2>
+    <h2>Собранные слова (максимум 10):</h2>
     <ul id="wordList"></ul>
 
-    <h2>Total Score: <span id="totalScore">0</span></h2>
+    <h2>Общий счёт: <span id="totalScore">0</span></h2>
+    <h2>Рекорд: <span id="highScore">0</span></h2>
   </div>
 
   <script src="script.js"></script>
