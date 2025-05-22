@@ -2,18 +2,23 @@ const baseWord = "синхофазатрон";
 const maxWords = 10;
 let usedWords = [];
 let totalScore = 0;
+let highScore = localStorage.getItem("highScore") || 0;
 
 const form = document.getElementById("wordForm");
 const wordInput = document.getElementById("wordInput");
 const messages = document.getElementById("messages");
 const wordList = document.getElementById("wordList");
 const totalScoreSpan = document.getElementById("totalScore");
+const highScoreSpan = document.getElementById("highScore");
+
+// отображаем сохранённый рекорд
+highScoreSpan.textContent = highScore;
 
 function canFormWord(word) {
   let baseLetters = baseWord.split('');
   for (let letter of word) {
     let index = baseLetters.indexOf(letter);
-    if (index === -1) return false; // letter not found or used up
+    if (index === -1) return false;
     baseLetters.splice(index, 1);
   }
   return true;
@@ -27,6 +32,7 @@ function updateUI() {
     wordList.appendChild(li);
   });
   totalScoreSpan.textContent = totalScore;
+  highScoreSpan.textContent = highScore;
 }
 
 form.addEventListener("submit", function (e) {
@@ -35,22 +41,22 @@ form.addEventListener("submit", function (e) {
 
   let word = wordInput.value.toLowerCase().trim();
   if (word.length === 0) {
-    messages.textContent = "Please enter a word.";
+    messages.textContent = "Введите слово.";
     return;
   }
 
   if (usedWords.length >= maxWords) {
-    messages.textContent = "You have already created 10 words!";
+    messages.textContent = "Вы уже ввели 10 слов!";
     return;
   }
 
   if (!canFormWord(word)) {
-    messages.textContent = "Word cannot be formed from the base word!";
+    messages.textContent = "Это слово нельзя составить из букв базового слова!";
     return;
   }
 
   if (usedWords.includes(word)) {
-    messages.textContent = "Word already used!";
+    messages.textContent = "Слово уже использовано!";
     return;
   }
 
@@ -59,7 +65,13 @@ form.addEventListener("submit", function (e) {
   updateUI();
 
   if (usedWords.length === maxWords) {
-    alert(`Game over! Your total score is ${totalScore}`);
+    if (totalScore > highScore) {
+      highScore = totalScore;
+      localStorage.setItem("highScore", highScore);
+      alert(`Новый рекорд! 🎉 Вы набрали ${totalScore} очков.`);
+    } else {
+      alert(`Игра окончена. Ваш счёт: ${totalScore}`);
+    }
   }
 
   wordInput.value = "";
