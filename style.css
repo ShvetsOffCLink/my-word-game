@@ -68,3 +68,40 @@ ul li {
 h2 {
   margin-top: 20px;
 }
+.top-left {
+  position: fixed;
+  top: 10px;
+  left: 15px;
+  font-family: 'Brush Script MT', cursive;
+  font-size: 1.5rem;
+  color: #555;
+  z-index: 1000;
+}
+
+.bottom-right {
+  position: fixed;
+  right: 15px;
+  bottom: 15px;
+  text-align: right;
+  font-family: Arial, sans-serif;
+  z-index: 1000;
+}
+
+.bottom-right img {
+  width: 60px;
+  height: auto;
+  border-radius: 12px;
+  margin-bottom: 5px;
+}
+
+.logo-text {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.motivation {
+  font-size: 0.9rem;
+  color: #555;
+  font-style: italic;
+}
